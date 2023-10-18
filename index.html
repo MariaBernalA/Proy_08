@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Hola ficha 2798618</h1>
+    <h2> Tema:JavaScript-web server  </h2>
+    <h3> subtema: uso del servidor web </h3>
+
+    <script>
+
+  const aprendiz1 = {
+    nombre: 'johana' ,
+    documento: '123456789',
+    edad: 12,
+
+    saludar: function () {
+      console.log(`Hola, me llamo ${this.nombre}` + 
+      ` y tengo ${this.edad} años`);
+    },
+    despedida : function(){
+      console.log(`Feliz aprendizaje! les deseaa ${this.nombre}`);
+    }
+  }
+
+  console.log(`Tarea 1`);
+  console.log({aprendiz1});
+
+  console.log(`Tarea 2`);
+  aprendiz1.saludar();
+  aprendiz1.despedida();
+
+  console.log(`Tarea 3`);
+  aprendiz1.nombre = `johana bernal`;
+  aprendiz1.saludar();
+
+  console.log(`Tarea 4`);
+  aprendiz1[`apellidos`] = 'cordoba';
+  aprendiz1[`nombre`] = 'german antonio';
+  aprendiz1.saludar();
+
+  console.log(`Tarea 5`);
+  aprendiz1['edad'] = 24;
+  aprendiz1.saludar = function(){
+     console.log(`Hola, me llamo ${this.nombre} ${this.apellidos} ` +
+         ` y tengo ${this.edad} años `);
+   }
+   aprendiz1.saludar();
+
+  console.log(`Tarea 6`);
+  const ficha = 'ficha';
+  const numFicha = '2798618';
+  const progFicha = 'ADSO';
+  aprendiz1[ficha] = numFicha;
+  aprendiz1['programa'] = progFicha;
+  aprendiz1.estudiar = function(){
+       console.log(`Estoy matriculado en la ficha, ${this.ficha} ` +
+          `cursando 1er trimestre del programa ${this.programa}!`);
+  } 
+  aprendiz1.estudiar();
+
+
+function Aprendiz(documento, nombres, apellidos, edad, ficha, programa ){
+  this.documento = documento;
+  this.nombres = nombres;
+  this.apellidos = apellidos;
+  this.edad = edad;
+  this.ficha = ficha;
+  this.programa = programa;
+}
+
+let aprendiz2 = new Aprendiz (`1234567` , `german andres`,
+                               `cartagena`, 25 , `2798618`, `ADSO`);
+console.log ({aprendiz2});
+
+Aprendiz.prototype.saludar = function(){
+    console.log (`Hola, me llamo ${this.nombres}` +
+                  `y tengo ${this.edad} años`); 
+ }
+
+Aprendiz.prototype.despedida = function(){
+  console.log(`Feliz aprendizaje! les desea ${this.nombres} ` +
+              `${this.apellidos}`);
+ }
+
+ Aprendiz.prototype.estudiar = function (){
+  console.log (`Matriculado en la ficha ${this.ficha} ` +
+                `y cursando 1er trimestre del programa ${this.programa}!`);
+ }
+
+function AprendizEtapaPractica(documento,nombres,apellidos,edad,ficha,programa,empresa,funcion){
+  this.super = Aprendiz;
+  this.super(documento, nombres, apellidos, edad, ficha , programa);
+  this.empresa = empresa;
+  this.funcion = funcion;
+}
+
+AprendizEtapaPractica.prototype = new Aprendiz();
+AprendizEtapaPractica.prototype.constructor = Aprendiz;
+
+AprendizEtapaPractica.prototype.estudiar = function(){
+  console.log(`Termine estapa lectiva y me encuentro en etapa productiva`);
+}
+
+AprendizEtapaPractica.prototype.trabajar = function (){
+  console.log(`Estoy trabajando en la empresa ${this.empresa} `+
+  `cumpliendo funciones de ${this.funcion}`);
+}
+
+let aprendiz3 = new AprendizEtapaPractica('12345', 'sandra patricia', 'sandoval' , 24, '2798618', 'adso', 'I.E.D Pompilio', 'Instructora');
+
+console.log({aprendiz3});
+
+aprendiz3.estudiar();
+aprendiz3.trabajar();
+
+    </script>
+</body>
+</html>
